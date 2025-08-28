@@ -23,6 +23,7 @@ requirements:
     - python
     - pyyaml
     - pycurl
+    - future
 
 test:
   commands:
