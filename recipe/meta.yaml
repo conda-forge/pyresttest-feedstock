@@ -7,23 +7,22 @@ package:
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
   number: 1004
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  script: ${{ PYTHON }} -m pip install .
 
 requirements:
   host:
     - python
     - pip
+    - setuptools
   run:
     - python
     - pyyaml
     - pycurl
-    - future  # [py3k]
 
 test:
   commands:
